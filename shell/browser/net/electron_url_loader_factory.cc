@@ -125,17 +125,17 @@ network::mojom::URLResponseHeadPtr ToResponseHead(
   bool has_mime_type = dict.Get("mimeType", &head->mime_type);
   bool has_content_type = false;
 
-  base::Value::Dict headers;
-  if (dict.Get("headers", &headers)) {
+  if (base::Value::Dict headers; dict.Get("headers", &headers)) {
     for (const auto iter : headers) {
       if (iter.second.is_string()) {
         // key, value
-        head->headers->AddHeader(iter.first, iter.second.GetString());
+        head->headers->AddHeader(iter.first,
+                                 std::move(iter.second).TakeString());
       } else if (iter.second.is_list()) {
         // key: [values...]
-        for (const auto& item : iter.second.GetList()) {
+        for (auto& item : iter.second.GetList()) {
           if (item.is_string())
-            head->headers->AddHeader(iter.first, item.GetString());
+            head->headers->AddHeader(iter.first, std::move(item).TakeString());
         }
       } else {
         continue;
