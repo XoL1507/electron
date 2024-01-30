@@ -150,3 +150,6 @@ reland_mojom_ts_generator_handle_empty_module_path_identically_to.patch
 cherry-pick-c1cda70a433a.patch
 cherry-pick-cc07a95bc309.patch
 safely_crash_on_dangling_profile.patch
+cherry-pick-d4a197e4913f.patch
+cherry-pick-8755f76bec32.patch
+cherry-pick-e321f354a613.patch
