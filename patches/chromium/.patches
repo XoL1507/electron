@@ -144,3 +144,6 @@ feat_allow_code_cache_in_custom_schemes.patch
 enable_partition_alloc_ref_count_size.patch
 ensure_an_axcontext_before_painting.patch
 safely_crash_on_dangling_profile.patch
+cherry-pick-d4a197e4913f.patch
+cherry-pick-8755f76bec32.patch
+cherry-pick-e321f354a613.patch
